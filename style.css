@@ -4,7 +4,7 @@
 	cursor: default !important;
 }
 #splash{
-	width: 100vw;
+	width: 100%;
 	height: auto;
 	min-height: 800px;
 	margin-top: -3rem;
@@ -263,7 +263,7 @@
 
 /* Products */
 #products{
-	width: 100vw;
+	width: 100%;
 	height: auto;
 	background: white;
 	margin-bottom: 5rem;
@@ -281,7 +281,7 @@
 	display: inline-flex;
 	flex-direction: row;
 	justify-content: center;
-	width: 90vw;
+	width: 100%;
 	grid-gap: 64px;
 	max-width: 1400px;
 }
@@ -559,10 +559,6 @@
 
 	#why-choose-us-card{
 		width: 25%;
-	}
-
-	#card-form{
-		width: 85%;
 	}
 
 }

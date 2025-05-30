@@ -1,6 +1,6 @@
 /* Contact */
 #contact{
-	width: 100vw;
+	width: 100%;
 	height: auto;
 	background: linear-gradient(66deg, #FDFDFD 1%, #EDEDED 100%);
 	/*background:linear-gradient(66deg, #787df8 1%, #6aa8fc 100%);*/
@@ -213,6 +213,12 @@
   width: 70%;
 }
 
+@media(max-width: 1281px){
+	#card-form{
+		width: calc(85% - 72px);
+	}
+}
+
 @media(max-width: 1025px){
 	#contact h1{
 		font-size: 2.5rem;
@@ -263,7 +269,7 @@
 		width: 172px;
 	}
 	#card-form .card-text{
-		width: 90%;
+		width: calc(90% - 72px);
 		margin-left: 8px;
 	}
 	#card-form .right-container input{
