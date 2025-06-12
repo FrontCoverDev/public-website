@@ -6,7 +6,7 @@
 #splash{
 	width: 100%;
 	height: auto;
-	min-height: 800px;
+	min-height: 812px;
 	margin-top: -3rem;
 	background-image: linear-gradient(
     180deg,
@@ -798,18 +798,18 @@
 
 
 /* Fade Animation */
-.hidden{
+.hidden[data-animation="fade"]{
 	opacity: 0;
 }
-.hidden-left{
+.hidden[data-animation="left"]{
 	opacity: 0;
 	transform: translateX(-200px);
 }
-.hidden-right{
+.hidden[data-animation="right"]{
 	opacity: 0;
 	transform: translateX(200px);
 }
-.hidden-down{
+.hidden[data-animation="down"]{
 	opacity: 0;
 	transform: translateY(200px);
 	filter: blur(10px);

@@ -3,43 +3,14 @@ const observer = new IntersectionObserver((entries) => {
 	entries.forEach((entry) => {
 		if (entry.isIntersecting){
 			entry.target.classList.add('center');
-		} else{
-			entry.target.classList.remove('center')
+      entry.target.classList.remove('hidden')
 		}
 	});
 })
 
-const hiddenElements = document.querySelectorAll('.hidden', '.hidden-slide')
+const hiddenElements = document.querySelectorAll('.hidden')
 hiddenElements.forEach((el) => observer.observe(el));
 
-//Fade for Grid
-const leftMovementObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting){
-      entry.target.classList.add('center');
-      entry.target.classList.remove('hidden-left');
-    }
-  })
-})
-
-const rightMovementObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting){
-      entry.target.classList.add('center')
-      entry.target.classList.remove('hidden-right');
-    }
-  })
-})
-
-//Fade for Products
-const upMovementObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting){
-      entry.target.classList.add('center')
-      entry.target.classList.remove('hidden-down');
-    }
-  })
-})
 
 const introAnimationObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -50,24 +21,18 @@ const introAnimationObserver = new IntersectionObserver((entries) => {
   })
 })
 
-//This is a start to making the observers better
-const elementsForIntersectionObserver = ['.hidden-left', '.hidden-right', '.hidden-down', 'hidden-fade']
-
-const leftToRight = document.querySelectorAll(".hidden-left");
-const rightToLeft = document.querySelectorAll(".hidden-right");
-const bottomToTop = document.querySelectorAll(".hidden-down")
 const introAnimation = document.querySelectorAll(".intro-animation");
-leftToRight.forEach((el) => leftMovementObserver.observe(el));
-rightToLeft.forEach((el) => rightMovementObserver.observe(el));
-bottomToTop.forEach((el) => upMovementObserver.observe(el));
-introAnimation.forEach((el) => introAnimationObserver.observe(el));
-//leftToRight.forEach((el) => observer.observe(el))
+introAnimation.forEach((el) => observer.observe(el));
 
 // Drop down menu options
 function dropdownFunction() {
   document.getElementsByClassName("dropdown-content")[0].classList.toggle("show-dropdown");
   return false;
 }
+
+//Parallax vars
+var longParallaxDifference = 150;
+var shortParallaxDifference = 60;
 
 window.addEventListener("DOMContentLoaded", function() {
   console.log("email: " + document.getElementById('email').value.trim() + ', ' + document.getElementById('email').value.trim().length)
@@ -90,11 +55,13 @@ window.addEventListener("DOMContentLoaded", function() {
     successScreen.style.width = `${enterScreenRect.width - diff}px`;
     successScreen.style.height = `${enterScreenRect.height}px`;
   }
+  if (window.innerWidth <= 700){
+    longParallaxDifference = 90;
+    shortParallaxDifference = 30;
+  }
 
 });
 
-var longParallaxDifference = 150;
-var shortParallaxDifference = 60;
 
 //Parallax Effect
 window.addEventListener('scroll', function(){
@@ -176,11 +143,3 @@ stackItems.forEach(item => {
     });
   });
 });
-
-window.addEventListener('resize', () => {
-  if (window.innerWidth <= 700){
-    longParallaxDifference = 0;
-    shortParallaxDifference = 0;
-  }
-  
-})
